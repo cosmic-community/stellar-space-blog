@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "type-check": "tsc --noEmit",
-    "prebuild": "bun run type-check",
+    "prebuild": "npx tsc --noEmit",
     "postbuild": "node scripts/inject-console-capture.js"
   },
   "dependencies": {
