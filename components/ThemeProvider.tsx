@@ -11,10 +11,15 @@ interface ThemeContextType {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-export function useTheme() {
+// Changed: Return default values instead of throwing when used outside ThemeProvider
+// This makes the hook safe during SSR/prerendering of static pages like /_not-found
+export function useTheme(): ThemeContextType {
   const context = useContext(ThemeContext);
   if (!context) {
-    throw new Error('useTheme must be used within a ThemeProvider');
+    return {
+      theme: 'dark',
+      toggleTheme: () => {},
+    };
   }
   return context;
 }
