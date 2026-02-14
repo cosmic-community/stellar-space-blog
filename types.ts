@@ -47,6 +47,16 @@ export interface Post extends CosmicObject {
   };
 }
 
+// Changed: Added AboutPage type for the about page singleton
+export interface AboutPage extends CosmicObject {
+  type: 'about-pages';
+  metadata: {
+    headline: string;
+    content: string;
+    hero_image?: CosmicFile;
+  };
+}
+
 // API response types
 export interface CosmicResponse<T> {
   objects: T[];

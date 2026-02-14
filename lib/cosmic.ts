@@ -1,5 +1,5 @@
 import { createBucketClient } from '@cosmicjs/sdk';
-import { Post, Author, Category } from '@/types';
+import { Post, Author, Category, AboutPage } from '@/types'; // Changed: Added AboutPage import
 
 // Simple error helper for Cosmic SDK
 function hasStatus(error: unknown): error is { status: number } {
@@ -147,5 +147,22 @@ export async function getCategoryBySlug(slug: string): Promise<Category | null> 
       return null;
     }
     throw new Error('Failed to fetch category');
+  }
+}
+
+// Changed: Added getAboutPage function for fetching about page content
+export async function getAboutPage(): Promise<AboutPage | null> {
+  try {
+    const response = await cosmic.objects
+      .findOne({ type: 'about-pages', slug: 'about' })
+      .props(['id', 'title', 'slug', 'metadata'])
+      .depth(1);
+
+    return response.object as AboutPage;
+  } catch (error) {
+    if (hasStatus(error) && error.status === 404) {
+      return null;
+    }
+    throw new Error('Failed to fetch about page');
   }
 }
