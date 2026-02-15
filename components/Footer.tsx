@@ -30,7 +30,6 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                {/* Changed: Added About link to footer navigation */}
                 <Link href="/about" className="text-gray-600 dark:text-gray-400 hover:text-cosmic-600 dark:hover:text-cosmic-400 transition-colors">
                   About
                 </Link>
@@ -43,6 +42,12 @@ export default function Footer() {
               <li>
                 <Link href="/authors" className="text-gray-600 dark:text-gray-400 hover:text-cosmic-600 dark:hover:text-cosmic-400 transition-colors">
                   Authors
+                </Link>
+              </li>
+              <li>
+                {/* Changed: Added Contact link to footer navigation */}
+                <Link href="/contact" className="text-gray-600 dark:text-gray-400 hover:text-cosmic-600 dark:hover:text-cosmic-400 transition-colors">
+                  Contact
                 </Link>
               </li>
             </ul>

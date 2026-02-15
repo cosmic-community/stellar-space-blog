@@ -10,9 +10,10 @@ export default function Header() {
 
   const navigation = [
     { name: 'Home', href: '/' },
-    { name: 'About', href: '/about' }, // Changed: Added About link
+    { name: 'About', href: '/about' },
     { name: 'Categories', href: '/categories' },
     { name: 'Authors', href: '/authors' },
+    { name: 'Contact', href: '/contact' }, // Changed: Added Contact link
   ];
 
   return (
