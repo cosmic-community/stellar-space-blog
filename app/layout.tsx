@@ -3,6 +3,7 @@ import { ThemeProvider } from '@/components/ThemeProvider';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CosmicBadge from '@/components/CosmicBadge';
+import ScrollToTop from '@/components/ScrollToTop'; // Changed: Added ScrollToTop component
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -28,6 +29,7 @@ export default function RootLayout({
       </head>
       <body className="font-sans bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300">
         <ThemeProvider>
+          <ScrollToTop /> {/* Changed: Added ScrollToTop to ensure page scrolls to top on navigation */}
           <div className="min-h-screen flex flex-col">
             <Header />
             <main className="flex-grow">
