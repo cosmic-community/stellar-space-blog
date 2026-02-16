@@ -1,5 +1,5 @@
 import { createBucketClient } from '@cosmicjs/sdk';
-import { Post, Author, Category, AboutPage } from '@/types'; // Changed: Added AboutPage import
+import { Post, Author, Category, AboutPage } from '@/types';
 
 // Simple error helper for Cosmic SDK
 function hasStatus(error: unknown): error is { status: number } {
@@ -150,7 +150,7 @@ export async function getCategoryBySlug(slug: string): Promise<Category | null> 
   }
 }
 
-// Changed: Added getAboutPage function for fetching about page content
+// Changed: Updated getAboutPage to fetch additional fields (subtitle, mission_statement)
 export async function getAboutPage(): Promise<AboutPage | null> {
   try {
     const response = await cosmic.objects

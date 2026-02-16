@@ -18,7 +18,9 @@ export default async function AboutPage() {
 
   const heroImageUrl = aboutPage?.metadata?.hero_image?.imgix_url;
   const headline = aboutPage?.metadata?.headline || 'About Stellar Space Blog';
+  const subtitle = aboutPage?.metadata?.subtitle || '';
   const content = aboutPage?.metadata?.content || '';
+  const missionStatement = aboutPage?.metadata?.mission_statement || '';
 
   return (
     <div className="min-h-screen">
@@ -43,9 +45,30 @@ export default async function AboutPage() {
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 text-balance">
               {headline}
             </h1>
+            {/* Changed: Added subtitle display below headline */}
+            {subtitle && (
+              <p className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto">
+                {subtitle}
+              </p>
+            )}
           </div>
         </div>
       </section>
+
+      {/* Changed: Added mission statement section */}
+      {missionStatement && (
+        <section className="bg-gradient-to-r from-cosmic-600 to-cosmic-700 text-white py-16">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div className="flex justify-center mb-6">
+              <span className="text-5xl">🎯</span>
+            </div>
+            <h2 className="text-2xl md:text-3xl font-bold mb-6">Our Mission</h2>
+            <p className="text-lg md:text-xl text-cosmic-100 leading-relaxed max-w-3xl mx-auto">
+              {missionStatement}
+            </p>
+          </div>
+        </section>
+      )}
 
       {/* Content Section */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">

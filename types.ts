@@ -47,12 +47,14 @@ export interface Post extends CosmicObject {
   };
 }
 
-// Changed: Added AboutPage type for the about page singleton
+// Changed: Enhanced AboutPage type with mission_statement and subtitle fields
 export interface AboutPage extends CosmicObject {
   type: 'about-pages';
   metadata: {
     headline: string;
+    subtitle?: string;
     content: string;
+    mission_statement?: string;
     hero_image?: CosmicFile;
   };
 }
